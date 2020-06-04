@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:demo_flutter/story.dart';
 import 'package:demo_flutter/play.dart';
+import 'package:demo_flutter/record.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -36,13 +37,21 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
+  void _openRecorder() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Record()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Stories'),
       ),
-      body: _buildStories(),
+      // body: _buildStories(),
+      body: FlatButton(onPressed: _openRecorder, child: Text('data')),
     );
   }
 }
